@@ -1,0 +1,24 @@
+# This file is a key map, informing `sops` of which key goes to which directories.
+# Product engineers should not need to touch this.
+
+creation_rules:
+  # dev environment keys
+  - path_regex: dev.*
+    key_groups:
+    - kms:
+      - arn: arn:aws:kms:us-east-2:710881719877:key/28b2a702-f982-4e3f-ad06-369b113ca00c
+        role: arn:aws:iam::710881719877:role/KMS_DEV_KEY_ACCESS_ROLE
+
+  # qa environment keys
+  - path_regex: qa.*
+    key_groups:
+    - kms:
+      - arn: arn:aws:kms:us-east-2:710881719877:key/5eafa2fc-69f6-46be-b0ad-9359d5e434ce
+        role: arn:aws:iam::710881719877:role/KMS_QA_KEY_ACCESS_ROLE
+
+  # prod environment keys
+  - path_regex: prod.*
+    key_groups:
+    - kms:
+      - arn: arn:aws:kms:us-east-2:710881719877:key/17d3ac04-ced5-4686-a2eb-8ca5d32f42be
+        role: arn:aws:iam::710881719877:role/KMS_PROD_KEY_ACCESS_ROLE

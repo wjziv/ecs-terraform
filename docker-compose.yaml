@@ -1,0 +1,13 @@
+version: "3"
+
+
+services:
+  # the developers' application
+  echo-server:
+    container_name: echo-server
+    build:
+      dockerfile: Dockerfile
+    ports:
+      - 8080:80
+    env_file:
+      - ./.env
