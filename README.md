@@ -48,16 +48,28 @@ This demo will end with the following IAM configuration:
     - permissions:
       - kms:Decrypt
 - User Groups
-  - people
-    - 
-  - service-accounts
+  - people:
+    - prod-devs
+    - qa-devs
+    - dev-devs
+  - service-accounts:
+    - bots
 - Users
   - my-human-developer-1
     - user-groups:
-      - people
+      - people:
+        - prod-devs
+        - qa-devs
+        - dev-devs
+  - my-human-developer-2
+    - user-groups:
+      - people:
+        - qa-devs
+        - dev-devs
   - my-deployment-bot
     - user-groups:
-      - service-accounts
+      - service-accounts:
+        - bots
 
 
 ## Requirements
